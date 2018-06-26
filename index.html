@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/app.js"></script>
+
 </head>
 
 <body>
@@ -18,36 +18,35 @@
       <!--First Row-->
       <button type="button" class="btn btn-primary">Submit</button>
       <div class="form-group first-row">
-        <label for="formGroupExampleInput">First Name</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="first name">
-        <div class="alert alert-danger" role="alert">
-          A simple danger alert—check it out!
+        <label for="name-input">First Name</label>
+        <input type="text" class="form-control" id="name-input" placeholder="first name">
+        <div class="alert alert-danger" id="name-alert" role="alert">
         </div>
       </div>
 
       <!--Second Row-->
       <div class="form-group second-row">
-        <label for="formGroupExampleInput2">Last name</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="last name">
-        <div class="alert alert-danger" role="alert">
-          A simple danger alert—check it out!
+        <label for="l-name-input">Last name</label>
+        <input type="text" class="form-control" id="l-name-input" placeholder="last name">
+        <div class="alert alert-danger" role="alert" id="l-name-alert">
+
         </div>
       </div>
       <!--Third Row-->
       <div class="form-group third-row">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        <div class="alert alert-danger" role="alert">
-          A simple danger alert—check it out!
+        <label for="email-input">Email address</label>
+        <input type="email" class="form-control" id="email-input" placeholder="name@example.com">
+        <div class="alert alert-danger" role="alert" id="email-alert">
+
         </div>
       </div>
       <!--Fourth Row-->
       <div class="form-group fourth-row">
-        <label for="date">Date birth</label>
+        <label for="date-selector">Date birth</label>
         <input type="date" id="date-selector" name="date">
       </div>
       <!--Fifth row(has to be over 18 to be displayed)-->
-      <div class="fifth-row">
+      <div class="fifth-row" id="fif-row">
         <label for="custom-control">Drink? </label>
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
@@ -59,7 +58,7 @@
         </div>
       </div>
       <!--Sixth Row-->
-      <div class="sixth-row">
+      <div class="sixth-row" id="six-row">
         <label for="custom-control">Smoke? </label>
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" id="customRadioInline3" name="customRadioInline3" class="custom-control-input">
@@ -71,7 +70,7 @@
         </div>
       </div>
       <!--Seventh Row-->
-      <div class="seventh-row">
+      <div class="seventh-row" id="svn-row">
         <label for="form-check">Hobbies:</label>
         <div class="form-group checkbox-container">
           <div class="form-check">
@@ -101,7 +100,7 @@
         </div>
       </div>
       <!--Eighth Row-->
-      <div class="form-group eighth-row">
+      <div class="form-group eighth-row" id="eig-row">
         <label for="custom-control">Did you like this survey? </label>
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" id="customRadioInline5" name="customRadioInline5" class="custom-control-input">
@@ -112,13 +111,13 @@
           <label class="custom-control-label" for="customRadioInline6">No</label>
         </div>
       </div>
+      <!--Last but not least-->
       <div class="last-row">
         <button type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
-
   </div>
-
 </body>
+<script src="js/app.js"></script>
 
 </html>
