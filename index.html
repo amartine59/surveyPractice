@@ -16,7 +16,7 @@
   <div class="wrapper">
     <div class="form-survey">
       <!--First Row-->
-      <button type="button" class="btn btn-primary">Submit</button>
+      <button id="top-button" type="button" class="btn btn-primary">Submit</button>
       <div class="form-group first-row">
         <label for="name-input">First Name</label>
         <input type="text" class="form-control" id="name-input" placeholder="first name">
@@ -43,7 +43,7 @@
       <!--Fourth Row-->
       <div class="form-group fourth-row">
         <label for="date-selector">Date birth</label>
-        <input type="date" id="date-selector" name="date">
+        <input type="date" id="date-selector" name="date" onchange="calculateAge(event)">
       </div>
       <!--Fifth row(has to be over 18 to be displayed)-->
       <div class="fifth-row" id="fif-row">
@@ -113,7 +113,7 @@
       </div>
       <!--Last but not least-->
       <div class="last-row">
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button id="bottom-button" type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
