@@ -8,7 +8,7 @@
   <title>Survey</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/pikaday.css">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="js/app.js"></script>
 </head>
 
@@ -24,6 +24,7 @@
           A simple danger alert—check it out!
         </div>
       </div>
+
       <!--Second Row-->
       <div class="form-group second-row">
         <label for="formGroupExampleInput2">Last name</label>
@@ -33,7 +34,7 @@
         </div>
       </div>
       <!--Third Row-->
-      <div class="form-group">
+      <div class="form-group third-row">
         <label for="exampleFormControlInput1">Email address</label>
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         <div class="alert alert-danger" role="alert">
@@ -41,9 +42,9 @@
         </div>
       </div>
       <!--Fourth Row-->
-      <div class="fourth-row">
+      <div class="form-group fourth-row">
         <label for="date">Date birth</label>
-        <input type="text" id="datepicker" name="date">
+        <input type="date" id="date-selector" name="date">
       </div>
       <!--Fifth row(has to be over 18 to be displayed)-->
       <div class="fifth-row">
@@ -61,52 +62,54 @@
       <div class="sixth-row">
         <label for="custom-control">Smoke? </label>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-          <label class="custom-control-label" for="customRadioInline1">Yes</label>
+          <input type="radio" id="customRadioInline3" name="customRadioInline3" class="custom-control-input">
+          <label class="custom-control-label" for="customRadioInline3">Yes</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-          <label class="custom-control-label" for="customRadioInline2">No</label>
+          <input type="radio" id="customRadioInline4" name="customRadioInline3" class="custom-control-input">
+          <label class="custom-control-label" for="customRadioInline4">No</label>
         </div>
       </div>
       <!--Seventh Row-->
       <div class="seventh-row">
         <label for="form-check">Hobbies:</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Play Videogames
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Read
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Family Time
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Exercise
-          </label>
+        <div class="form-group checkbox-container">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Play Videogames
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
+              Read
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+            <label class="form-check-label" for="defaultCheck3">
+              Family Time
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+            <label class="form-check-label" for="defaultCheck4">
+              Exercise
+            </label>
+          </div>
         </div>
       </div>
       <!--Eighth Row-->
-      <div class="eighth-row">
+      <div class="form-group eighth-row">
         <label for="custom-control">Did you like this survey? </label>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-          <label class="custom-control-label" for="customRadioInline1">Yes</label>
+          <input type="radio" id="customRadioInline5" name="customRadioInline5" class="custom-control-input">
+          <label class="custom-control-label" for="customRadioInline5">Yes</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-          <label class="custom-control-label" for="customRadioInline2">No</label>
+          <input type="radio" id="customRadioInline6" name="customRadioInline5" class="custom-control-input">
+          <label class="custom-control-label" for="customRadioInline6">No</label>
         </div>
       </div>
       <div class="last-row">
@@ -117,9 +120,5 @@
   </div>
 
 </body>
-<script src="/js/pikaday.js"></script>
-<script>
-  var picker = new Pikaday({ field: document.getElementById('datepicker') });
-</script>
 
 </html>

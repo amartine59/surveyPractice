@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-survey {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  width: 520px;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.first-row,
+.second-row,
+.third-row,
+.fourth-row,
+.fifth-row,
+.sixth-row,
+.eighth-row {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.seventh-row {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
+.seventh-row > div {
+  align-self: center;
+}
+
+.fifth-row > label,
+.sixth-row > label {
+  margin-right: 5px;
+  margin-bottom: 0;
+}
