@@ -43,7 +43,10 @@
       <!--Fourth Row-->
       <div class="form-group fourth-row">
         <label for="date-selector">Date birth</label>
-        <input type="date" id="date-selector" name="date" onchange="calculateAge(event)">
+        <input type="date" class="form-control" id="date-selector" name="date" onchange="calculateAge(event)">
+        <div class="alert alert-danger" role="alert" id="date-alert">
+
+        </div>
       </div>
       <!--Fifth row(has to be over 18 to be displayed)-->
       <div class="fifth-row" id="fif-row">

@@ -9,7 +9,14 @@ function hideAllBoxes() {
   document.getElementById("name-alert").style.display = "none";
   document.getElementById("l-name-alert").style.display = "none";
   document.getElementById("email-alert").style.display = "none";
+  document.getElementById("date-alert").style.display = "none";
 }
+//We need to fix the following points:
+// 1- Change the style of the date element(input).==> Done
+// 2- Add an alert box for the date input.==> Done
+// 3- Reset the email box in case of error.==> Done
+// 4- Reset the date box in case of error. ==> Done
+//You started at 3:05pm i want it done by 3:45 Done at 3:42 pm
 
 function hideAlertBox(boxElement) {
   var selectedBox = boxElement.id;
@@ -24,6 +31,9 @@ function hideAlertBox(boxElement) {
   if (selectedBox == "email-input") {
     document.getElementById("email-alert").style.display = "none";
     return;
+  }
+  if (selectedBox == "date-selector") {
+    document.getElementById("date-alert").style.display = "none";
   }
 }
 
@@ -69,6 +79,7 @@ function validateRequiredInputs() {
     if (lName.value.trim() != "") {
       hideAlertBox(lName);
     }
+
     isValid = true;
     //To display the errors on the empty boxes
   }
@@ -81,12 +92,12 @@ function validateRequiredInputs() {
   }
 
   if (name.value.trim() == "") {
-    var error = "Im afraid you must enter a name..";
+    var error = "This field cannot be blank";
     errorDeploy(name, error);
     isValid = false;
   }
   if (lName.value.trim() == "") {
-    var error = "Sorry but this field cannot be blank..";
+    var error = "This field cannot be blank";
     errorDeploy(lName, error);
     isValid = false;
   }
@@ -94,11 +105,17 @@ function validateRequiredInputs() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
       var error = "You must enter a valid email";
       errorDeploy(email, error);
+      isValid = false;
+    } else {
+      hideAlertBox(email);
     }
   }
   if (date.value.trim() == "") {
-    displayDateAlert();
+    var error = "This field cannot be blank";
+    displayDateAlert(error);
     isValid = false;
+  } else {
+    hideAlertBox(date);
   }
   return isValid;
 }
@@ -117,13 +134,10 @@ function displayEmailAlert(error) {
   document.getElementById("email-alert").style.display = "block";
   document.getElementById("email-alert").innerHTML = error;
 }
-//Shakes the date selector to show that we require the date of birth
-function displayDateAlert() {
-  let date = document.getElementById("date-selector");
-  date.classList.add("error");
-  setTimeout(function() {
-    date.classList.remove("error");
-  }, 300);
+
+function displayDateAlert(error) {
+  document.getElementById("date-alert").style.display = "block";
+  document.getElementById("date-alert").innerHTML = error;
 }
 
 //Launches the error related to the given element(input)
@@ -139,6 +153,10 @@ function errorDeploy(boxElement, error) {
   }
   if (selectedBox == "email-input") {
     displayEmailAlert(error);
+    return;
+  }
+  if (selectedBox == "date-selector") {
+    displayDateAlert(error);
     return;
   }
 }
@@ -189,10 +207,7 @@ function isChecked() {
 function onFilledForm() {
   if (validateRequiredInputs()) {
     resetForm();
-    return;
   }
-  hideConditionalBoxes();
-  //clearAllFields();
 }
 
 function resetForm() {

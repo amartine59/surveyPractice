@@ -25,13 +25,17 @@ body {
 .first-row,
 .second-row,
 .third-row,
-.fourth-row,
 .fifth-row,
 .sixth-row,
 .eighth-row {
   margin-bottom: 10px;
   width: 100%;
 }
+
+.fourth-row {
+  align-self: flex-start;
+}
+
 .seventh-row {
   display: flex;
   flex-flow: column wrap;
