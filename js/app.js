@@ -221,6 +221,7 @@ function resetForm() {
   document.getElementById("date-selector").value = "";
 }
 
+// To reset all the inputs
 function clearAllFields() {
   document.getElementById("name-input").value = "";
   document.getElementById("l-name-input").value = "";
