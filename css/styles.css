@@ -1,14 +1,19 @@
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   border: 0;
-  background: url(https://i.giphy.com/media/V5qXaUBISlbTa/giphy.webp) no-repeat
-    center center fixed;
-  background-size: cover;
+  height: inherit;
 }
-.form-control {
-  opacity: 0.5;
+
+.wrapper {
+  height: inherit;
+  display: flex;
+  align-items: center;
 }
+
 .form-survey {
   display: flex;
   flex-flow: column wrap;
@@ -48,4 +53,10 @@ body {
 .sixth-row > label {
   margin-right: 5px;
   margin-bottom: 0;
+}
+.last-row {
+  width: 100%;
+}
+.last-row > button {
+  width: inherit;
 }
