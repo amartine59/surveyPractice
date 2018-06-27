@@ -197,10 +197,10 @@ function isChecked() {
   var drinkRadioOne = document.getElementById("customRadioInline1").checked;
   if (drinkRadioOne) {
     displayBox(sixthRow);
-    return true;
-  } else {
-    return false;
   }
+}
+function hideSmokeBox() {
+  sixthRow.style.display = "none";
 }
 
 //For the submit button
