@@ -212,23 +212,3 @@ function clearAllFields() {
   document.getElementById("email-input").value = "";
   document.getElementById("date-selector").value = "";
 }
-
-function validarCampoGenerico(boxElement) {
-  var campoValue = boxElement.value.trim();
-  if (campoValue != "") {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function validarEmail() {
-  var email = document.getElementById("email-input").value.trim();
-  if (email != "") {
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
