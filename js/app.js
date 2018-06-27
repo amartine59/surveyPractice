@@ -1,7 +1,7 @@
 //You will only display the fifth and sixth row when the user is over 18
 //The other ones will be displayed to under 18 users(and over 18 as well with the exception of the last row)
-window.onload = hideConditionalBoxes();
-function hideConditionalBoxes() {
+window.onload = hideAllBoxes();
+function hideAllBoxes() {
   document.getElementById("fif-row").style.display = "none";
   document.getElementById("six-row").style.display = "none";
   document.getElementById("svn-row").style.display = "none";
@@ -10,7 +10,30 @@ function hideConditionalBoxes() {
   document.getElementById("l-name-alert").style.display = "none";
   document.getElementById("email-alert").style.display = "none";
 }
-//(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) regex for email validation
+
+function hideAlertBox(boxElement) {
+  var selectedBox = boxElement.id;
+  if (selectedBox == "name-input") {
+    document.getElementById("name-alert").style.display = "none";
+    return;
+  }
+  if (selectedBox == "l-name-input") {
+    document.getElementById("l-name-alert").style.display = "none";
+    return;
+  }
+  if (selectedBox == "email-input") {
+    document.getElementById("email-alert").style.display = "none";
+    return;
+  }
+}
+
+function hideConditionalBoxes() {
+  document.getElementById("fif-row").style.display = "none";
+  document.getElementById("six-row").style.display = "none";
+  document.getElementById("svn-row").style.display = "none";
+  document.getElementById("eig-row").style.display = "none";
+}
+
 var fifthRow = document.getElementById("fif-row");
 var sixthRow = document.getElementById("six-row");
 var seventhRow = document.getElementById("svn-row");
@@ -21,7 +44,7 @@ function validateRequiredInputs() {
   var lName = document.getElementById("l-name-input");
   var email = document.getElementById("email-input");
   var date = document.getElementById("date-selector");
-
+  var isValid = false;
   if (
     name.value.trim() != "" &&
     lName.value.trim() != "" &&
@@ -29,21 +52,43 @@ function validateRequiredInputs() {
   ) {
     if (email.value.trim() != "") {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        return true;
+        hideAlertBox(name);
+        hideAlertBox(lName);
+        hideAlertBox(email);
+        isValid = true;
+        return isValid;
       } else {
         var error = "You must enter a valid email";
         errorDeploy(email, error);
-        return false;
+        return isValid;
       }
     }
+    if (name.value.trim() != "") {
+      hideAlertBox(name);
+    }
+    if (lName.value.trim() != "") {
+      hideAlertBox(lName);
+    }
+    isValid = true;
     //To display the errors on the empty boxes
-  } else if (name.value.trim() == "") {
+  }
+  //Removing the boxes that are not empty anymore
+  if (name.value.trim() != "") {
+    hideAlertBox(name);
+  }
+  if (lName.value.trim() != "") {
+    hideAlertBox(lName);
+  }
+
+  if (name.value.trim() == "") {
     var error = "Im afraid you must enter a name..";
     errorDeploy(name, error);
+    isValid = false;
   }
   if (lName.value.trim() == "") {
     var error = "Sorry but this field cannot be blank..";
     errorDeploy(lName, error);
+    isValid = false;
   }
   if (email.value.trim() != "") {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
@@ -53,8 +98,9 @@ function validateRequiredInputs() {
   }
   if (date.value.trim() == "") {
     displayDateAlert();
+    isValid = false;
   }
-  return false;
+  return isValid;
 }
 //Displaying the many possible errors
 function displayNameAlert(error) {
@@ -113,7 +159,10 @@ function calculateAge(e) {
   if (Age >= 18) {
     displayBox(fifthRow);
     displayBoxF();
+    eighthRow.style.display = "none";
   } else if (Age < 18) {
+    fifthRow.style.display = "none";
+    sixthRow.style.display = "none";
     displayBoxF();
     displayBox(eighthRow);
   }
@@ -140,16 +189,46 @@ function isChecked() {
 function onFilledForm() {
   if (validateRequiredInputs()) {
     resetForm();
+    return;
   }
+  hideConditionalBoxes();
+  //clearAllFields();
 }
 
 function resetForm() {
   setTimeout(function() {
     alert("Thank you for filling this survey have a nice day :D");
-  }, 500);
-  hideConditionalBoxes();
+  }, 300);
+  hideAllBoxes();
   document.getElementById("name-input").value = "";
   document.getElementById("l-name-input").value = "";
   document.getElementById("email-input").value = "";
   document.getElementById("date-selector").value = "";
+}
+
+function clearAllFields() {
+  document.getElementById("name-input").value = "";
+  document.getElementById("l-name-input").value = "";
+  document.getElementById("email-input").value = "";
+  document.getElementById("date-selector").value = "";
+}
+
+function validarCampoGenerico(boxElement) {
+  var campoValue = boxElement.value.trim();
+  if (campoValue != "") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validarEmail() {
+  var email = document.getElementById("email-input").value.trim();
+  if (email != "") {
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
