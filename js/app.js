@@ -23,12 +23,12 @@ function validateRequiredInputs() {
   var date = document.getElementById("date-selector");
 
   if (
-    name.value.trim() != "" ||
-    lName.value.trim() != "" ||
+    name.value.trim() != "" &&
+    lName.value.trim() != "" &&
     date.value.trim() != ""
   ) {
     if (email.value.trim() != "") {
-      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         return true;
       } else {
         var error = "You must enter a valid email";
@@ -36,7 +36,6 @@ function validateRequiredInputs() {
         return false;
       }
     }
-    return true;
     //To display the errors on the empty boxes
   } else if (name.value.trim() == "") {
     var error = "Im afraid you must enter a name..";
@@ -46,7 +45,12 @@ function validateRequiredInputs() {
     var error = "Sorry but this field cannot be blank..";
     errorDeploy(lName, error);
   }
-
+  if (email.value.trim() != "") {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      var error = "You must enter a valid email";
+      errorDeploy(email, error);
+    }
+  }
   if (date.value.trim() == "") {
     displayDateAlert();
   }
@@ -69,6 +73,7 @@ function displayEmailAlert(error) {
 }
 //Shakes the date selector to show that we require the date of birth
 function displayDateAlert() {
+  let date = document.getElementById("date-selector");
   date.classList.add("error");
   setTimeout(function() {
     date.classList.remove("error");
@@ -86,7 +91,7 @@ function errorDeploy(boxElement, error) {
     displayLNameAlert(error);
     return;
   }
-  if (selectedBox == "email-alert") {
+  if (selectedBox == "email-input") {
     displayEmailAlert(error);
     return;
   }
@@ -107,13 +112,13 @@ function calculateAge(e) {
 
   if (Age >= 18) {
     displayBox(fifthRow);
-    displayBox(sixthRow);
     displayBoxF();
   } else if (Age < 18) {
     displayBoxF();
     displayBox(eighthRow);
   }
 }
+
 function displayBox(boxElement) {
   boxElement.style.display = "block";
 }
@@ -121,8 +126,30 @@ function displayBox(boxElement) {
 function displayBoxF() {
   document.getElementById("svn-row").style.display = "flex";
 }
-
-function onFilledForm() {
-  if (validateRequiredInputs) {
+function isChecked() {
+  var drinkRadioOne = document.getElementById("customRadioInline1").checked;
+  if (drinkRadioOne) {
+    displayBox(sixthRow);
+    return true;
+  } else {
+    return false;
   }
+}
+
+//For the submit button
+function onFilledForm() {
+  if (validateRequiredInputs()) {
+    resetForm();
+  }
+}
+
+function resetForm() {
+  setTimeout(function() {
+    alert("Thank you for filling this survey have a nice day :D");
+  }, 500);
+  hideConditionalBoxes();
+  document.getElementById("name-input").value = "";
+  document.getElementById("l-name-input").value = "";
+  document.getElementById("email-input").value = "";
+  document.getElementById("date-selector").value = "";
 }

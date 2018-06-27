@@ -16,7 +16,7 @@
   <div class="wrapper">
     <div class="form-survey">
       <!--First Row-->
-      <button id="top-button" type="button" class="btn btn-primary">Submit</button>
+      <button id="top-button" type="button" class="btn btn-primary" onclick="onFilledForm()">Submit</button>
       <div class="form-group first-row">
         <label for="name-input">First Name</label>
         <input type="text" class="form-control" id="name-input" placeholder="first name">
@@ -48,7 +48,7 @@
       <!--Fifth row(has to be over 18 to be displayed)-->
       <div class="fifth-row" id="fif-row">
         <label for="custom-control">Drink? </label>
-        <div class="custom-control custom-radio custom-control-inline">
+        <div class="custom-control custom-radio custom-control-inline" onchange="isChecked()">
           <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
           <label class="custom-control-label" for="customRadioInline1">Yes</label>
         </div>
@@ -113,7 +113,7 @@
       </div>
       <!--Last but not least-->
       <div class="last-row">
-        <button id="bottom-button" type="button" class="btn btn-primary">Submit</button>
+        <button id="bottom-button" type="button" class="btn btn-primary" onclick="onFilledForm()">Submit</button>
       </div>
     </div>
   </div>
